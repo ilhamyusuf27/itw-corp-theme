@@ -1,0 +1,7 @@
+/**
+ * Editor-only tweaks. Front-end CSS (global.css) is also loaded in the editor.
+ */
+
+header.wp-block-template-part {
+	position: static;
+}

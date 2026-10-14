@@ -1,0 +1,18 @@
+/* List: "Checkmark" style. */
+.wp-block-list.is-style-checkmark {
+	list-style: none;
+	padding-inline-start: 0;
+}
+
+.wp-block-list.is-style-checkmark li {
+	position: relative;
+	padding-inline-start: 1.75em;
+}
+
+.wp-block-list.is-style-checkmark li::before {
+	content: "✓";
+	position: absolute;
+	inset-inline-start: 0;
+	color: var(--wp--preset--color--accent);
+	font-weight: 700;
+}

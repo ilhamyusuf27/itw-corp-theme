@@ -1,0 +1,417 @@
+/**
+ * Portfolio archive and project pages (patterns/layouts/portfolio.php, project.php, shared/project-card.php).
+ *
+ * Same direction as the home page; tokens come from home.css.
+ */
+
+/* Archive heading and filters. */
+
+.p-head {
+	padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.p-head__title {
+	font-size: var(--s-disp);
+	font-weight: 300;
+	line-height: 0.95;
+	letter-spacing: -0.035em;
+}
+
+.p-head__lead {
+	max-width: 40ch;
+	margin-top: 1.25rem !important;
+	color: var(--soft);
+}
+
+.p-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.p-filter select {
+	min-height: 44px;
+	padding: 0 2.6rem 0 1.1rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--sand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%232b2216' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 1.1rem center;
+	color: var(--walnut);
+	font: inherit;
+	font-size: 1rem;
+	appearance: none;
+	cursor: pointer;
+	transition: background-color var(--wp--custom--transition);
+}
+
+.p-filter select:hover {
+	background-color: #ddd8d0;
+}
+
+.p-filter select:focus-visible,
+.p-filter__go:focus-visible {
+	outline: 2px solid var(--walnut);
+	outline-offset: 2px;
+}
+
+.p-filter select.is-set {
+	background-color: var(--walnut);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%23f1f0ed' stroke-width='1.5'/%3E%3C/svg%3E");
+	color: var(--paper);
+}
+
+.p-filter__go {
+	min-height: 44px;
+	padding: 0 1.2rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--walnut);
+	color: var(--paper);
+	font: inherit;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.p-filter.is-live .p-filter__go {
+	display: none;
+}
+
+/* The grid: an uneven rhythm of 7 + 5, then 4 + 4 + 4. */
+
+.p-list {
+	padding: 0 var(--g) var(--sec);
+	transition: opacity 250ms ease;
+}
+
+.p-list.is-loading {
+	opacity: 0.45;
+}
+
+.p-grid {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: clamp(2rem, 3.5vw, 3rem) var(--gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.p-grid > li {
+	grid-column: span 4;
+	--h: clamp(220px, 23vw, 340px);
+}
+
+.p-grid > li:nth-child(5n + 1) {
+	grid-column: span 7;
+	--h: clamp(260px, 31vw, 470px);
+}
+
+.p-grid > li:nth-child(5n + 2) {
+	grid-column: span 5;
+	--h: clamp(260px, 31vw, 470px);
+}
+
+/* Home: six featured projects as 7 + 5, 5 + 7, 6 + 6. */
+.p-grid--home > li:nth-child(6n + 1),
+.p-grid--home > li:nth-child(6n + 4) {
+	grid-column: span 7;
+	--h: clamp(240px, 28vw, 420px);
+}
+
+.p-grid--home > li:nth-child(6n + 2),
+.p-grid--home > li:nth-child(6n + 3) {
+	grid-column: span 5;
+	--h: clamp(240px, 28vw, 420px);
+}
+
+.p-grid--home > li:nth-child(6n + 5),
+.p-grid--home > li:nth-child(6n) {
+	grid-column: span 6;
+	--h: clamp(220px, 25vw, 380px);
+}
+
+/* On the tan field the secondary line keeps the field's own ink. */
+.h-work .p-card__kind {
+	color: var(--ink-on-tan);
+	opacity: 0.8;
+}
+
+.h-work__query {
+	margin-top: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.p-grid--three > li,
+.p-grid--three > li:nth-child(n) {
+	grid-column: span 4;
+	--h: clamp(220px, 23vw, 340px);
+}
+
+.p-card__img {
+	height: var(--h);
+	margin: 0 !important;
+	overflow: hidden;
+	border-radius: var(--r);
+}
+
+.p-card__img a {
+	display: block;
+	height: 100%;
+}
+
+.p-card__img img {
+	width: 100%;
+	height: 100% !important;
+	object-fit: cover;
+	border-radius: var(--r);
+	transition: transform 900ms var(--ease), opacity 300ms ease;
+}
+
+.p-grid > li:hover .p-card__img img {
+	transform: scale(1.04);
+}
+
+.p-grid:hover > li:not(:hover) .p-card__img img {
+	opacity: 0.85;
+}
+
+.p-card__title {
+	margin-top: 0.9rem !important;
+	font-size: var(--s-lead);
+	font-weight: 300;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+}
+
+.p-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.p-card__kind {
+	margin-top: 0.35rem !important;
+	color: var(--soft);
+	font-size: 1rem;
+}
+
+.p-card__kind:empty {
+	display: none;
+}
+
+/* Pagination becomes "Load more" with script. */
+
+.p-more {
+	margin-top: clamp(2.5rem, 5vw, 4rem) !important;
+	gap: 0.75rem;
+}
+
+.p-more a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-height: 48px;
+	padding: 0 1.5rem;
+	border-radius: 999px;
+	background: var(--walnut);
+	color: var(--paper);
+	font-size: 1rem;
+	text-decoration: none;
+	transition: background-color var(--wp--custom--transition), color var(--wp--custom--transition);
+}
+
+.p-more a:hover {
+	background: var(--tan);
+	color: var(--walnut);
+}
+
+.p-list.is-live .wp-block-query-pagination-previous {
+	display: none;
+}
+
+.p-empty {
+	padding-block: 3rem;
+	font-size: var(--s-lead);
+	font-weight: 300;
+}
+
+/* Project page: name, facts, cover. */
+
+.p-hero {
+	padding-top: clamp(2rem, 5vw, 4rem);
+	padding-bottom: 0;
+}
+
+.p-hero__title {
+	max-width: 14em;
+	font-size: var(--s-disp);
+	font-weight: 300;
+	line-height: 0.98;
+	letter-spacing: -0.035em;
+	text-wrap: balance;
+}
+
+.p-facts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: 1.5rem var(--gap);
+	margin-top: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.p-fact:has(.p-fact__v:empty) {
+	display: none;
+}
+
+.p-fact__k {
+	color: var(--soft);
+	font-size: 1rem;
+}
+
+.p-fact__v {
+	margin-top: 0.25rem !important;
+	font-size: var(--s-body);
+}
+
+.p-hero__cover {
+	margin-top: clamp(2.5rem, 5vw, 4rem) !important;
+	overflow: hidden;
+	border-radius: var(--r);
+}
+
+.p-hero__cover img {
+	aspect-ratio: 16 / 9;
+	height: auto !important;
+}
+
+/* Project story: the post content, read calmly. */
+
+.p-story {
+	padding: var(--sec) var(--g);
+	font-size: var(--s-body);
+	line-height: 1.6;
+}
+
+.p-story :where(h2, h3) {
+	margin-top: 2.5em;
+	font-size: var(--s-lead);
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+/* Galleries run wide: the first picture full width, the rest in pairs. */
+.p-story .wp-block-gallery.has-nested-images {
+	box-sizing: border-box;
+	width: min(1280px, 100%);
+	max-width: none !important;
+	margin: clamp(2.5rem, 5vw, 4rem) auto 0 !important;
+	gap: var(--gap);
+}
+
+.p-story .wp-block-gallery.has-nested-images figure.wp-block-image {
+	flex: 1 1 calc(50% - var(--gap)) !important;
+	width: auto !important;
+	margin: 0 !important;
+}
+
+.p-story .wp-block-gallery.has-nested-images figure.wp-block-image:first-child {
+	flex-basis: 100% !important;
+}
+
+.p-story .wp-block-gallery.has-nested-images figure.wp-block-image img {
+	aspect-ratio: 3 / 2;
+	height: auto !important;
+	object-fit: cover;
+}
+
+.p-story .wp-block-gallery.has-nested-images figure.wp-block-image:first-child img {
+	aspect-ratio: 16 / 9;
+}
+
+.p-story .wp-block-gallery img,
+.p-story .wp-block-image img {
+	border-radius: var(--r);
+}
+
+/* Client's words, shown only when filled in. */
+
+.p-words {
+	padding-top: 0;
+}
+
+.p-words:has(.p-words__quote:empty) {
+	display: none;
+}
+
+.p-words__quote {
+	max-width: 28ch;
+	font-size: var(--s-lead);
+	font-weight: 300;
+	line-height: 1.3;
+}
+
+.p-words__by {
+	margin-top: 1rem !important;
+	color: var(--soft);
+	font-size: 1rem;
+}
+
+/* Related projects. */
+
+.p-related {
+	background: var(--sand);
+}
+
+.p-related__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.p-related__all {
+	font-size: 1rem;
+}
+
+.p-related__title {
+	font-size: var(--s-head);
+	line-height: 1;
+}
+
+.p-related:not(:has(.wp-block-post-template > li)) {
+	display: none;
+}
+
+@media (max-width: 781px) {
+	.p-head__title {
+		font-size: clamp(3.5rem, 17vw, 5rem);
+	}
+
+	.p-hero__title {
+		font-size: var(--s-head);
+	}
+
+	.p-grid > li,
+	.p-grid > li:nth-child(n) {
+		grid-column: 1 / -1;
+		--h: 240px;
+	}
+
+	.p-grid > li:nth-child(3n + 2),
+	.p-grid > li:nth-child(3n + 3) {
+		grid-column: span 6;
+		--h: 180px;
+	}
+
+	.p-grid > li:nth-child(3n + 2) .p-card__title,
+	.p-grid > li:nth-child(3n + 3) .p-card__title {
+		font-size: var(--s-body);
+	}
+
+	.p-facts {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.p-story .wp-block-gallery.has-nested-images figure.wp-block-image {
+		flex-basis: 100% !important;
+	}
+}
