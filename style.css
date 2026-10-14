@@ -1,0 +1,22 @@
+/*
+Theme Name: ITW Corp
+Theme URI: https://example.com/itw-corp
+Author: ITW
+Author URI: https://example.com
+Description: A clean, well-structured corporate block theme. Design tokens live in theme.json, PHP logic is namespaced under inc/, and layouts are built from templates, template parts and patterns.
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.1
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: itw-corp
+Tags: full-site-editing, block-patterns, block-styles, style-variations, wide-blocks, editor-style, translation-ready, accessibility-ready, business
+*/
+
+/*
+ * Intentionally empty. This file only provides the theme header.
+ * Global styles  → theme.json
+ * Custom CSS     → assets/css/global.css
+ * Per-block CSS  → assets/css/blocks/{namespace}-{block}.css (loaded only when the block is used)
+ */

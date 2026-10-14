@@ -1,0 +1,186 @@
+/**
+ * Our Process page (patterns/process/).
+ *
+ * Same direction as the home page; tokens come from home.css, the heading
+ * from portfolio.css and the question tiles from services.css.
+ */
+
+.pr-hero__img {
+	margin-top: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.pr-hero__img img {
+	aspect-ratio: 3 / 1;
+	object-position: 50% 45%;
+}
+
+/* Steps beside a sticky list of steps. */
+
+.pr-steps {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--gap);
+	align-items: start;
+	padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.pr-aside {
+	grid-column: 1 / 4;
+	position: sticky;
+	top: var(--itw-sticky-top);
+}
+
+.pr-aside__title {
+	font-size: var(--s-lead);
+	font-weight: 400;
+}
+
+.pr-index {
+	margin-top: 1.25rem !important;
+	padding: 0;
+	list-style: none;
+	font-size: 1rem;
+}
+
+.pr-index li + li {
+	margin-top: 0.15rem !important;
+}
+
+.pr-index a {
+	display: inline-block;
+	padding-block: 0.3rem;
+	color: var(--soft) !important;
+	text-decoration: none;
+	transition: color var(--wp--custom--transition), transform var(--wp--custom--transition);
+}
+
+.pr-index a:hover {
+	color: var(--walnut) !important;
+}
+
+.pr-index a.is-active {
+	color: var(--walnut) !important;
+	transform: translateX(6px);
+}
+
+.pr-aside__note {
+	max-width: 26ch;
+	margin-top: 1.75rem !important;
+	color: var(--soft);
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.pr-list {
+	grid-column: 5 / 13;
+	display: grid;
+	gap: clamp(3rem, 6vw, 5rem);
+}
+
+.pr-step {
+	display: grid;
+	grid-template-columns: repeat(8, minmax(0, 1fr));
+	column-gap: var(--gap);
+	row-gap: 1.25rem;
+	align-items: center;
+	scroll-margin-top: var(--itw-sticky-top);
+}
+
+.pr-step__img {
+	grid-column: 1 / 5;
+}
+
+.pr-step__img img {
+	aspect-ratio: 4 / 3;
+}
+
+.pr-step__text {
+	grid-column: 5 / 9;
+}
+
+.pr-step:nth-child(even) .pr-step__img {
+	grid-column: 5 / 9;
+	grid-row: 1;
+}
+
+.pr-step:nth-child(even) .pr-step__text {
+	grid-column: 1 / 5;
+	grid-row: 1;
+}
+
+.pr-step__title {
+	font-size: var(--s-lead);
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+.pr-step__time {
+	margin-top: 0.35rem !important;
+	color: var(--soft);
+	font-size: 1rem;
+}
+
+.pr-step__text p:not([class]) {
+	margin-top: 1rem !important;
+	line-height: 1.55;
+}
+
+.pr-step__get {
+	margin-top: 1rem !important;
+	font-size: 1rem;
+}
+
+/* Questions. */
+
+.pr-faq {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--gap);
+	row-gap: 2rem;
+	align-items: start;
+}
+
+.pr-faq__title {
+	grid-column: 1 / 5;
+	font-size: var(--s-head);
+	line-height: 1;
+}
+
+.pr-faq__list {
+	grid-column: 5 / 13;
+}
+
+.pr-faq .wp-block-details:first-child {
+	margin-top: 0 !important;
+}
+
+@media (max-width: 1024px) {
+	.pr-aside {
+		display: none;
+	}
+
+	.pr-list {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 781px) {
+	.pr-hero__img img {
+		aspect-ratio: 4 / 3;
+	}
+
+	.pr-step,
+	.pr-step:nth-child(even) {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.pr-faq {
+		display: block;
+	}
+
+	.pr-faq__title {
+		margin-bottom: 1.5rem !important;
+	}
+}

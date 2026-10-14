@@ -1,0 +1,27 @@
+/* Button: "Accent" style. */
+.wp-block-button.is-style-fill-accent .wp-block-button__link {
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--base);
+}
+
+/* Button: "Text link" style. An underlined secondary action. */
+.wp-block-button.is-style-text-link .wp-block-button__link {
+	padding-inline: 0;
+	background: none;
+	color: var(--wp--preset--color--contrast);
+	text-decoration: underline 2px;
+	text-underline-offset: 0.4em;
+}
+
+.wp-block-button.is-style-text-link .wp-block-button__link:hover {
+	background: none;
+	color: var(--wp--preset--color--primary);
+}
+
+.wp-block-button__link {
+	transition: background-color var(--wp--custom--transition), color var(--wp--custom--transition), transform 160ms ease;
+}
+
+.wp-block-button__link:active {
+	transform: translateY(1px);
+}

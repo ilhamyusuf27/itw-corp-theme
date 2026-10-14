@@ -1,0 +1,49 @@
+/**
+ * Global styles that theme.json cannot express.
+ * Prefer theme.json first; keep this file small.
+ */
+
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+/* Space taken at the top by the admin bar and the sticky header (set by theme.js). */
+:root {
+	--itw-sticky-top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--itw-header-h, 5rem) + 1.5rem);
+}
+
+/* Sticky header (template part wrapper). */
+header.wp-block-template-part {
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 0);
+	z-index: 100;
+	background: var(--wp--preset--color--base);
+	transition: background-color var(--wp--custom--transition);
+}
+
+header.wp-block-template-part.is-scrolled {
+	background: var(--wp--preset--color--surface);
+}
+
+/* Admin bar is not sticky on small screens. */
+@media (max-width: 600px) {
+	header.wp-block-template-part {
+		top: 0;
+	}
+}
+
+/* Keep main and footer flush (no blockGap between root blocks). */
+.wp-site-blocks > * + * {
+	margin-block-start: 0;
+}

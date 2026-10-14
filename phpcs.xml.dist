@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ruleset name="ITW Corp">
+	<description>WordPress Coding Standards for the ITW Corp theme.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg value="sp"/>
+
+	<config name="testVersion" value="8.1-"/>
+	<config name="minimum_wp_version" value="6.7"/>
+
+	<rule ref="WordPress">
+		<!-- Class files use PSR-4 names (inc/Assets.php), not class-assets.php. -->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="itw-corp"/>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="itw_corp,ITWCorp,ITW_CORP"/>
+		</properties>
+	</rule>
+</ruleset>

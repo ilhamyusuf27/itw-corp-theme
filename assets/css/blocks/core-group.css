@@ -1,0 +1,6 @@
+/* Group: "Card" style. A step in tone, no line or shadow. */
+.wp-block-group.is-style-card {
+	padding: var(--wp--preset--spacing--50);
+	background-color: var(--wp--preset--color--surface);
+	height: 100%;
+}

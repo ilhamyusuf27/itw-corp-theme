@@ -1,0 +1,503 @@
+/**
+ * Contact page sections (patterns/contact/).
+ *
+ * Same direction as the home page: warm paper, walnut text, one sand
+ * field, the studio's own rooms. Tokens come from home.css.
+ */
+
+/* Hero: the invitation, three ways to reach us, one wide room. */
+
+.c-hero {
+	padding-top: clamp(3rem, 8vw, 7rem);
+	padding-bottom: 0;
+}
+
+.c-hero__top {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--gap);
+	row-gap: 2.5rem;
+	align-items: end;
+}
+
+.c-hero__title {
+	grid-column: 1 / 9;
+	font-size: var(--s-disp);
+	font-weight: 300;
+	line-height: 0.98;
+	letter-spacing: -0.035em;
+}
+
+.c-hero__ways {
+	grid-column: 9 / 13;
+	display: grid;
+	gap: 0.4rem;
+	font-size: var(--s-body);
+}
+
+.c-hero__actions {
+	grid-column: 9 / 13;
+	margin-top: -1rem !important;
+}
+
+.c-hero__ways a {
+	text-decoration: none;
+}
+
+.c-hero__ways a:hover {
+	text-decoration: underline;
+}
+
+.c-hero__strip {
+	margin-top: clamp(3rem, 6vw, 5rem) !important;
+}
+
+.c-hero__strip img {
+	aspect-ratio: 3 / 1;
+	object-position: 50% 55%;
+}
+
+/* Booking: a short note on the left, the form on a paper card. */
+
+.c-book {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--gap);
+	row-gap: 3rem;
+	align-items: start;
+	margin-top: var(--sec) !important;
+	background: var(--sand);
+}
+
+.c-book__aside {
+	grid-column: 1 / 5;
+	position: sticky;
+	top: var(--itw-sticky-top);
+}
+
+.c-book__title {
+	font-size: var(--s-head);
+	line-height: 1;
+}
+
+.c-book__lead {
+	max-width: 30ch;
+	margin-top: 1.25rem !important;
+	line-height: 1.5;
+}
+
+.c-book__ready-title {
+	margin-top: clamp(2.5rem, 5vw, 4rem) !important;
+	font-size: var(--s-body);
+	font-weight: 500;
+	letter-spacing: 0;
+}
+
+.c-book__ready {
+	margin-top: 0.75rem !important;
+	line-height: 1.5;
+}
+
+.c-book__photo {
+	margin-top: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.c-book__photo img {
+	aspect-ratio: 4 / 5;
+}
+
+.c-book__ready li + li {
+	margin-top: 0.3rem !important;
+}
+
+/* The form. Fields keep their own soft fill; lines are allowed in forms. */
+
+.c-form,
+.c-form * {
+	box-sizing: border-box;
+}
+
+.c-form {
+	min-width: 0;
+	grid-column: 6 / 13;
+	display: grid;
+	gap: 1.5rem;
+	padding: clamp(1.5rem, 3.5vw, 3rem);
+	border-radius: var(--r);
+	background: var(--paper);
+}
+
+.c-form__row,
+.c-more__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.5rem var(--gap);
+}
+
+.c-field {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.c-field > span,
+.c-choice legend {
+	color: var(--soft);
+	font-size: 1rem;
+}
+
+.c-field :is(input, select, textarea) {
+	width: 100%;
+	min-height: 48px;
+	padding: 0.7rem 0.9rem;
+	border: 1px solid transparent;
+	border-radius: var(--r);
+	background: var(--sand);
+	color: var(--walnut);
+	font: inherit;
+	font-size: 1rem;
+	transition: border-color var(--wp--custom--transition), background-color var(--wp--custom--transition);
+}
+
+.c-field textarea {
+	min-height: 8rem;
+	resize: vertical;
+}
+
+.c-field :is(input, select, textarea):hover {
+	border-color: var(--wp--preset--color--border);
+}
+
+.c-field :is(input, select, textarea):focus-visible {
+	outline: 2px solid var(--walnut);
+	outline-offset: 1px;
+	background: var(--paper);
+}
+
+.c-form .is-invalid :is(input, select, textarea),
+.c-choice.is-invalid label span,
+.c-consent.is-invalid span {
+	border-color: #9a3b1f;
+}
+
+.c-choice {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.c-choice legend {
+	width: 100%;
+	margin-bottom: 0.6rem;
+	padding: 0;
+}
+
+.c-choice label {
+	position: relative;
+}
+
+.c-choice input {
+	position: absolute;
+	opacity: 0;
+	inset: 0;
+	cursor: pointer;
+}
+
+.c-choice span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0 1.1rem;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: var(--sand);
+	font-size: 1rem;
+	transition: background-color var(--wp--custom--transition), color var(--wp--custom--transition);
+}
+
+.c-choice label:hover span {
+	background: #ddd8d0;
+}
+
+.c-choice input:checked + span {
+	background: var(--walnut);
+	color: var(--paper);
+}
+
+.c-choice input:focus-visible + span {
+	outline: 2px solid var(--walnut);
+	outline-offset: 2px;
+}
+
+.c-more {
+	border-radius: var(--r);
+}
+
+.c-more summary {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-height: 44px;
+	cursor: pointer;
+	font-size: 1rem;
+	list-style: none;
+	text-decoration: underline;
+	text-underline-offset: 0.25em;
+}
+
+.c-more summary::-webkit-details-marker {
+	display: none;
+}
+
+.c-more summary::after {
+	content: "+";
+	transition: transform var(--wp--custom--transition);
+}
+
+.c-more[open] summary::after {
+	transform: rotate(45deg);
+}
+
+.c-more__grid {
+	margin-top: 1rem;
+}
+
+.c-consent {
+	display: flex;
+	gap: 0.75rem;
+	align-items: flex-start;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.c-consent input {
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin-top: 0.1rem;
+	accent-color: var(--walnut);
+}
+
+.c-consent.is-invalid span {
+	color: #9a3b1f;
+}
+
+.c-form__send {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem 1.75rem;
+}
+
+.c-form__send .wp-element-button {
+	min-height: 52px;
+	padding: 0.9rem 1.8rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--walnut);
+	color: var(--paper);
+	font: inherit;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color var(--wp--custom--transition), color var(--wp--custom--transition), transform 160ms var(--ease);
+}
+
+.c-form__send .wp-element-button:hover {
+	background: var(--tan);
+	color: var(--walnut);
+}
+
+.c-form__send button:active {
+	transform: translateY(1px);
+}
+
+.c-form__alt {
+	min-height: 44px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--walnut);
+	font: inherit;
+	font-size: 1rem;
+	text-decoration: underline;
+	text-underline-offset: 0.25em;
+	cursor: pointer;
+}
+
+.c-form__alt:hover {
+	color: var(--soft);
+}
+
+.c-form__note {
+	min-height: 1.5em;
+	color: var(--soft);
+	font-size: 1rem;
+}
+
+.c-form__note:empty {
+	display: none;
+}
+
+/* Three rooms: a pause between the form and the map. */
+
+.c-rooms {
+	display: grid;
+	grid-template-columns: 1.3fr 1fr 1fr;
+	gap: 0.75rem;
+	padding-bottom: 0;
+}
+
+.c-rooms img {
+	aspect-ratio: 4 / 3;
+}
+
+/* Visit: the map and the practical details. */
+
+.c-visit {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--gap);
+	row-gap: 2.5rem;
+	align-items: stretch;
+}
+
+.c-visit__map {
+	grid-column: 1 / 8;
+	min-height: 26rem;
+	overflow: hidden;
+	border-radius: var(--r);
+	background: var(--sand);
+}
+
+.c-visit__map iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 26rem;
+	border: 0;
+	filter: saturate(0.6) sepia(0.15);
+}
+
+.c-visit__info {
+	grid-column: 9 / 13;
+	display: flex;
+	flex-direction: column;
+}
+
+.c-visit__title {
+	font-size: var(--s-head);
+	line-height: 1;
+}
+
+.c-visit__addr {
+	margin-top: 1.5rem !important;
+	font-size: var(--s-body);
+	line-height: 1.5;
+}
+
+.c-visit__route {
+	margin-top: 0.75rem !important;
+	font-size: 1rem;
+}
+
+.c-hours {
+	margin-top: 2rem !important;
+	font-size: 1rem;
+}
+
+.c-hours li {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-block: 0.45rem;
+}
+
+.c-hours li span:first-child {
+	color: var(--soft);
+}
+
+.c-visit__social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
+	margin-top: auto !important;
+	padding-top: 2rem;
+	font-size: 1rem;
+}
+
+/* Tablet and phone. */
+
+@media (max-width: 1024px) {
+	.c-hero__title {
+		grid-column: 1 / -1;
+	}
+
+	.c-hero__ways,
+	.c-hero__actions {
+		grid-column: 1 / -1;
+	}
+
+	.c-hero__actions {
+		margin-top: 0 !important;
+	}
+
+	.c-book__aside {
+		position: static;
+	}
+}
+
+@media (max-width: 781px) {
+	.c-hero__title {
+		font-size: clamp(3.5rem, 18vw, 5rem);
+	}
+
+	.c-hero__top {
+		row-gap: 1.5rem;
+	}
+
+	.c-book__photo {
+		display: none;
+	}
+
+	.c-rooms {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.c-rooms figure:first-child {
+		grid-column: 1 / -1;
+	}
+
+	.c-hero__strip img {
+		aspect-ratio: 3 / 2;
+	}
+
+	.c-book,
+	.c-visit {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.c-book {
+		row-gap: 2rem;
+	}
+
+	.c-form {
+		padding: 1.25rem;
+	}
+
+	.c-form__row,
+	.c-more__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.c-visit__map,
+	.c-visit__map iframe {
+		min-height: 18rem;
+	}
+
+	.c-visit {
+		flex-direction: column-reverse;
+	}
+}
