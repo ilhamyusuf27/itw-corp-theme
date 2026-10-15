@@ -5,14 +5,14 @@
  * Categories: itw-corp-shared, call-to-action
  * Keywords: cta, contact, consultation, whatsapp
  * Viewport Width: 1440
- * Description: The invitation to book, set as a card lying on a walnut field. The WhatsApp number is a placeholder.
+ * Description: The invitation to book, set as a card lying on a walnut field. Contact details come from Settings → Contact details.
  *
  * @package ITWCorp
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$itw_wa = 'https://wa.me/6281200000000?text=' . rawurlencode( __( 'Hello itw-corp, I would like to book a design consultation.', 'itw-corp' ) );
+$itw_wa = '{{whatsapp_url}}?text=' . rawurlencode( __( 'Hello itw-corp, I would like to book a design consultation.', 'itw-corp' ) );
 ?>
 <!-- wp:group {"tagName":"section","align":"full","className":"h-cta","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull h-cta">
@@ -39,7 +39,7 @@ $itw_wa = 'https://wa.me/6281200000000?text=' . rawurlencode( __( 'Hello itw-cor
 		<!-- /wp:buttons -->
 
 		<!-- wp:paragraph {"className":"h-card__alt"} -->
-		<p class="h-card__alt"><?php esc_html_e( 'Or message us on', 'itw-corp' ); ?> <a href="<?php echo esc_url( $itw_wa ); ?>">WhatsApp</a></p>
+		<p class="h-card__alt"><?php esc_html_e( 'Or message us on', 'itw-corp' ); ?> <a href="<?php echo esc_attr( $itw_wa ); ?>">WhatsApp</a></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

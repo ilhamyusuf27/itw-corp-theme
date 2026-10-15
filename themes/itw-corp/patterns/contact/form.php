@@ -59,7 +59,7 @@ $itw_options = static function ( array $values ): string {
 	<!-- /wp:group -->
 
 	<!-- wp:html -->
-	<form class="c-form" action="mailto:hello@example.com?subject=Consultation%20request" method="post" enctype="text/plain" data-wa="6281200000000" data-mail="hello@example.com">
+	<form class="c-form" action="mailto:{{email}}?subject=Consultation%20request" method="post" enctype="text/plain" data-wa="{{whatsapp_url}}" data-mail="{{email}}">
 		<div class="c-form__row">
 			<label class="c-field"><span><?php esc_html_e( 'Your name', 'itw-corp' ); ?></span><input type="text" name="name" autocomplete="name" required></label>
 			<label class="c-field"><span><?php esc_html_e( 'Phone or WhatsApp', 'itw-corp' ); ?></span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
