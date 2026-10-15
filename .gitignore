@@ -1,32 +1,28 @@
-# Dependencies
-/vendor/
-/node_modules/
+# Repository root = wp-content/.
+# Only our own code is tracked: the itw-corp theme and the mu-plugins.
+# WordPress core, uploads, third-party plugins and backups stay out of git.
 
-# OS and editor files
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+
+!/themes/
+/themes/*
+!/themes/itw-corp/
+
+!/mu-plugins/
+
+# OS and editor files anywhere
 .DS_Store
 Thumbs.db
 desktop.ini
 .idea/
 .vscode/
 *.swp
-*.swo
-*~
-
-# Logs, caches and build output
 *.log
-.phpcs-cache
-.phpunit.result.cache
-/dist/
-*.zip
 
-# Local environment and secrets (login path, keys, credentials)
+# Secrets
 .env
 .env.*
 !.env.example
-auth.json
-
-# Agent skills and design-tool output (not part of the theme)
-.agents/
-.claude/
-.taste-skill/
-skills-lock.json

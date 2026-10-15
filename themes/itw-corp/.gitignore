@@ -1,0 +1,32 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs, caches and build output
+*.log
+.phpcs-cache
+.phpunit.result.cache
+/dist/
+*.zip
+
+# Local environment and secrets (login path, keys, credentials)
+.env
+.env.*
+!.env.example
+auth.json
+
+# Agent skills and design-tool output (not part of the theme)
+.agents/
+.claude/
+.taste-skill/
+skills-lock.json
