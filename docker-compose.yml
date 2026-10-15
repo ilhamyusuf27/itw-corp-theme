@@ -14,9 +14,9 @@ services:
       - db
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_NAME: ${DB_NAME}
-      WORDPRESS_DB_USER: ${DB_USER}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${DB_NAME:?Set DB_NAME in Dokploy → Environment}
+      WORDPRESS_DB_USER: ${DB_USER:?Set DB_USER in Dokploy → Environment}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in Dokploy → Environment}
       ITW_LOGIN_SLUG: ${ITW_LOGIN_SLUG}
       WORDPRESS_CONFIG_EXTRA: |
         if ( getenv( 'ITW_LOGIN_SLUG' ) ) { define( 'ITW_LOGIN_SLUG', getenv( 'ITW_LOGIN_SLUG' ) ); }
@@ -32,10 +32,10 @@ services:
     image: mariadb:11
     restart: unless-stopped
     environment:
-      MARIADB_DATABASE: ${DB_NAME}
-      MARIADB_USER: ${DB_USER}
-      MARIADB_PASSWORD: ${DB_PASSWORD}
-      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_NAME:?Set DB_NAME in Dokploy → Environment}
+      MARIADB_USER: ${DB_USER:?Set DB_USER in Dokploy → Environment}
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in Dokploy → Environment}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Set DB_ROOT_PASSWORD in Dokploy → Environment}
     volumes:
       - db_data:/var/lib/mysql
 
