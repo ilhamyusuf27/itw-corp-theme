@@ -6,7 +6,7 @@ This repository is the site's `wp-content/` folder, with only our own code track
 wp-content/
 ├── themes/itw-corp/   Block theme (design, templates, patterns) — see its README
 └── mu-plugins/        Must-use plugins, always active
-    ├── itw-content.php + itw-content/   Projects, Services, Team (content model)
+    ├── itw-content.php + itw-content/   Projects, Services, Team, contact details
     └── itw-login.php                    Private login address + styled login screen
 ```
 

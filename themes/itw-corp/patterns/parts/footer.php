@@ -38,7 +38,7 @@ $itw_links = array(
 	<!-- /wp:group -->
 
 	<!-- wp:paragraph {"className":"site-footer__mail"} -->
-	<p class="site-footer__mail"><a href="mailto:hello@example.com">hello<wbr>@example.com</a></p>
+	<p class="site-footer__mail"><a href="mailto:{{email}}">{{email}}</a></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:group {"className":"site-footer__meta","layout":{"type":"default"}} -->
@@ -52,7 +52,7 @@ $itw_links = array(
 		<!-- /wp:paragraph -->
 
 		<!-- wp:paragraph -->
-		<p><a href="tel:+622100000000">+62 21 0000 0000</a> · <a href="https://www.instagram.com/">Instagram</a> · <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy', 'itw-corp' ); ?></a></p>
+		<p><a href="{{phone_url}}">{{phone}}</a> · <a href="{{instagram_url}}">Instagram</a> · <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy', 'itw-corp' ); ?></a></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:paragraph -->

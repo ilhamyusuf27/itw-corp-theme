@@ -14,7 +14,7 @@ This theme works together with two **must-use plugins** in `wp-content/mu-plugin
 
 | Plugin | What it does |
 | --- | --- |
-| `itw-content.php` + `itw-content/` | Content model: **Projects** (with Category, Style and Location), **Services** and **Team**, their editor panels, block bindings, FAQ schema |
+| `itw-content.php` + `itw-content/` | Content model: **Projects** (with Category, Style and Location), **Services** and **Team**, their editor panels, block bindings, FAQ schema; **Settings → Contact details** |
 | `itw-login.php` | Private login address and the styled login screen (see [Login](#login)) |
 
 The content model is in a plugin, not in the theme, so projects and services survive a theme change.
@@ -83,6 +83,10 @@ the blocks. To refresh a page, insert its `pages/` pattern again into an empty p
 
 ## Content
 
+Contact details (WhatsApp, phone, email, social links) are edited once in **Settings → Contact details**.
+Patterns and pages use tokens such as `{{whatsapp}}`, `{{whatsapp_url}}`, `{{phone}}`, `{{email}}`;
+never type the numbers themselves. The full list is on that settings screen.
+
 | Content | Where to edit | Shown on |
 | --- | --- | --- |
 | Projects | Dashboard → Projects. Cover image, story and gallery as blocks; facts in the **Project details** panel; "Featured on homepage" toggle | Portfolio, project pages, homepage (featured), service pages |
@@ -99,7 +103,8 @@ Images in patterns come from the media library by file name, for example
 - Homepage testimonial and figures (180 / 12 / 9)
 - Service descriptions, lists and FAQ answers; Our Process step times and FAQ
 - About: story, vision, mission, design principles
-- Phone, WhatsApp number, email and opening hours (address is real)
+- Phone, WhatsApp, email and social links: **Settings → Contact details** (one place for the whole site)
+- Opening hours (address is real)
 - Three starter articles under Insights
 
 ## Front-end behaviour (`assets/js/theme.js`)

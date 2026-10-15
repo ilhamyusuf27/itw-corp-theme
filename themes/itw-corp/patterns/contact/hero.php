@@ -14,7 +14,7 @@ use ITWCorp\Media;
 
 defined( 'ABSPATH' ) || exit;
 
-$itw_wa = 'https://wa.me/6281200000000?text=' . rawurlencode( __( 'Hello itw-corp, I would like to book a design consultation.', 'itw-corp' ) );
+$itw_wa = '{{whatsapp_url}}?text=' . rawurlencode( __( 'Hello itw-corp, I would like to book a design consultation.', 'itw-corp' ) );
 ?>
 <!-- wp:group {"tagName":"section","align":"full","className":"h-sec c-hero","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull h-sec c-hero">
@@ -27,15 +27,15 @@ $itw_wa = 'https://wa.me/6281200000000?text=' . rawurlencode( __( 'Hello itw-cor
 		<!-- wp:list {"className":"c-hero__ways"} -->
 		<ul class="wp-block-list c-hero__ways">
 			<!-- wp:list-item -->
-			<li><a href="<?php echo esc_url( $itw_wa ); ?>"><?php esc_html_e( 'WhatsApp', 'itw-corp' ); ?> +62 812 0000 0000</a></li>
+			<li><a href="<?php echo esc_attr( $itw_wa ); ?>"><?php esc_html_e( 'WhatsApp', 'itw-corp' ); ?> {{whatsapp}}</a></li>
 			<!-- /wp:list-item -->
 
 			<!-- wp:list-item -->
-			<li><a href="tel:+622100000000"><?php esc_html_e( 'Call', 'itw-corp' ); ?> +62 21 0000 0000</a></li>
+			<li><a href="{{phone_url}}"><?php esc_html_e( 'Call', 'itw-corp' ); ?> {{phone}}</a></li>
 			<!-- /wp:list-item -->
 
 			<!-- wp:list-item -->
-			<li><a href="mailto:hello@example.com">hello@example.com</a></li>
+			<li><a href="mailto:{{email}}">{{email}}</a></li>
 			<!-- /wp:list-item -->
 		</ul>
 		<!-- /wp:list -->

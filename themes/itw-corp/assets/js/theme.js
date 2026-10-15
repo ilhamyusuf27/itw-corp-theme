@@ -141,7 +141,7 @@
 
 			const url = via === 'email'
 				? `mailto:${ form.dataset.mail }?subject=${ encodeURIComponent( 'Consultation request' ) }&body=${ encodeURIComponent( body ) }`
-				: `https://wa.me/${ form.dataset.wa }?text=${ encodeURIComponent( body ) }`;
+				: `${ form.dataset.wa.startsWith( 'http' ) ? form.dataset.wa : 'https://wa.me/' + form.dataset.wa }?text=${ encodeURIComponent( body ) }`;
 
 			note.textContent = via === 'email'
 				? 'Your email app is opening with the message ready to send.'

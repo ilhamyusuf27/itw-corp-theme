@@ -53,7 +53,7 @@ $itw_route   = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlenc
 		<!-- /wp:list -->
 
 		<!-- wp:paragraph {"className":"c-visit__social"} -->
-		<p class="c-visit__social"><a href="https://www.instagram.com/">Instagram</a> <a href="https://www.pinterest.com/">Pinterest</a> <a href="https://www.linkedin.com/">LinkedIn</a></p>
+		<p class="c-visit__social"><a href="{{instagram_url}}">Instagram</a> <a href="{{pinterest_url}}">Pinterest</a> <a href="{{linkedin_url}}">LinkedIn</a></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
