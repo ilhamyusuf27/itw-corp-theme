@@ -6,6 +6,9 @@
 !/.gitignore
 !/LICENSE
 !/README.md
+!/docker-compose.yml
+!/docker/
+!/.env.example
 
 !/themes/
 /themes/*

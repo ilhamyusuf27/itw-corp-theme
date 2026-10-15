@@ -1,0 +1,44 @@
+# Staging/production stack for Dokploy.
+#
+# WordPress core, uploads and the database live in volumes and persist across deploys.
+# The theme and mu-plugins are mounted from this repository, so each deploy
+# (git push to main) replaces them with the latest code.
+#
+# Set the variables in Dokploy → Environment (see .env.example).
+
+services:
+  wordpress:
+    image: wordpress:6.8-php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      ITW_LOGIN_SLUG: ${ITW_LOGIN_SLUG}
+      WORDPRESS_CONFIG_EXTRA: |
+        if ( getenv( 'ITW_LOGIN_SLUG' ) ) { define( 'ITW_LOGIN_SLUG', getenv( 'ITW_LOGIN_SLUG' ) ); }
+        define( 'WP_ENVIRONMENT_TYPE', 'staging' );
+        define( 'DISALLOW_FILE_EDIT', true );
+    volumes:
+      - wp_data:/var/www/html
+      - ./themes/itw-corp:/var/www/html/wp-content/themes/itw-corp
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/itw.ini:ro
+
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  wp_data:
+  db_data:
